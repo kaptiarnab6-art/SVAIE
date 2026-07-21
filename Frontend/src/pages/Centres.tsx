@@ -32,7 +32,7 @@ const Centres = () => {
 
   // Add to Favorites
   const addToFavorites = (item:any) => {
-    const stored = JSON.parse(localStorage.getItem("favorites"));
+    const stored = JSON.parse(localStorage.getItem("favorites") ?? "[]");
 
     const exists = stored.some((fav:any) => fav.id === item.name);
 
