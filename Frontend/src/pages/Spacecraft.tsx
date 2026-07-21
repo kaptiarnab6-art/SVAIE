@@ -16,9 +16,9 @@ const Spacecraft = () => {
   const [showModal, setShowModal] = useState(false);
 
   // AI states
-  const [aiResponse, setAiResponse] = useState("");
-  const [selectedCraft, setSelectedCraft] = useState("");
-  const [aiLoading, setAiLoading] = useState(false);
+  const [aiResponse, setAiResponse] = useState<string>("");
+  const [selectedCraft, setSelectedCraft] = useState<string>("");
+  const [aiLoading, setAiLoading] = useState<boolean>(false);
 
   // Search
   useEffect(()=>{

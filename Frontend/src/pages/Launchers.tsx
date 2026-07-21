@@ -10,15 +10,15 @@ const Launchers = () => {
   const loc = useLocation();
   const {data} = loc.state as {data:any[]}
 
-  const [filtered, setFiltered] = useState([]);
-  const [search, setSearch] = useState("");
-  const [favorites, setFavorites] = useState([]);
+  const [filtered, setFiltered] = useState<any[]>([]);
+  const [search, setSearch] = useState<string>("");
+  const [favorites, setFavorites] = useState<any[]>([]);
 
   // AI states
-  const [aiResponse, setAiResponse] = useState("");
-  const [selectedCraft, setSelectedCraft] = useState("");
-  const [aiLoading, setAiLoading] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [aiResponse, setAiResponse] = useState<string>("");
+  const [selectedCraft, setSelectedCraft] = useState<string>("");
+  const [aiLoading, setAiLoading] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   // Search
   useEffect(()=>{

@@ -262,12 +262,12 @@ const NASA_ivl = () => {
                     <tbody>
 
                       <tr>
-                        <th width="200">Title</th>
+                        <th style={{width:"200"}}>Title</th>
                         <td>{selectedItem.data?.[0]?.title}</td>
                       </tr>
 
                       <tr>
-                        <th width="200">NASA ID</th>
+                        <th style={{width:"200"}}>NASA ID</th>
                         <td>{selectedItem.data?.[0]?.nasa_id}</td>
                       </tr>
 
