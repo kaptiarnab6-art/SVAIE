@@ -50,6 +50,7 @@ const EPIC = () => {
     </h2>
 
     {/* Fixed Search Bar */}
+
     <div 
       className="sticky-top bg-transparent py-3 mb-4"
       style={{ 
@@ -58,21 +59,25 @@ const EPIC = () => {
       }}
     >
       <div className="d-flex justify-content-center">
-        <div style={{ maxWidth: "350px", width: "100%" }} className="input-group">
+<div style={{ maxWidth: "350px", width: "100%" }}>
   <input 
     type="date" 
-    className="form-control shadow rounded-start-pill ps-4 pe-2 py-2" 
+    className="form-control shadow rounded-pill ps-4 pe-5 py-2" 
     value={date} 
     onChange={(e) => setDate(e.target.value)} 
-    style={{ border: "2px solid #2dffc7ff", borderRight: "none", fontSize: "16px", cursor: "pointer" }} 
+    style={{ 
+      border: "2px solid #2dfffbff", 
+      fontSize: "16px", 
+      cursor: "pointer",
+      // Forces custom SVG icon as background
+      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='16' height='16' fill='%232dffc7' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/%3E%3C/svg%3E")`,
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "right 1.25rem center",
+      backgroundSize: "18px"
+    }} 
   />
-  <span 
-    className="input-group-text bg-white shadow rounded-end-pill pe-4 ps-2" 
-    style={{ border: "2px solid #2dffc7ff", borderLeft: "none", color: "#2dffc7ff" }}
-  >
-    📅
-  </span>
 </div>
+
 
       </div>
     </div>
