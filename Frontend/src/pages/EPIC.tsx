@@ -58,21 +58,22 @@ const EPIC = () => {
       }}
     >
       <div className="d-flex justify-content-center">
-        <div style={{ maxWidth: "350px", width: "100%" }}>
-          <input
-            type="date"
-            placeholder="Select Date"
-            className="form-control shadow rounded-pill px-4 py-2"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            style={{
-              border: "2px solid #2dffc7ff",
-              fontSize: "16px",
-              cursor: "pointer"
-            }}
-          />
+        <div style={{ maxWidth: "350px", width: "100%" }} className="input-group">
+  <input 
+    type="date" 
+    className="form-control shadow rounded-start-pill ps-4 pe-2 py-2" 
+    value={date} 
+    onChange={(e) => setDate(e.target.value)} 
+    style={{ border: "2px solid #2dffc7ff", borderRight: "none", fontSize: "16px", cursor: "pointer" }} 
+  />
+  <span 
+    className="input-group-text bg-white shadow rounded-end-pill pe-4 ps-2" 
+    style={{ border: "2px solid #2dffc7ff", borderLeft: "none", color: "#2dffc7ff" }}
+  >
+    📅
+  </span>
+</div>
 
-        </div>
       </div>
     </div>
 
