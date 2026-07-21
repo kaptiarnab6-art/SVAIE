@@ -65,7 +65,7 @@ const EPIC = () => {
             value={date}
             onChange={(e) => setDate(e.target.value)}
             style={{
-              border: "2px solid #0d6efd",
+              border: "2px solid #6300d3ff",
               fontSize: "16px",
               cursor: "pointer"
             }}
