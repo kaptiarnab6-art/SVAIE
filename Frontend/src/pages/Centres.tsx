@@ -12,7 +12,7 @@ const Centres = () => {
 
   const [filtered, setFiltered] = useState<any[]>([]);
   const [search, setSearch] = useState<string>("");
-  const [favorites, setFavorites] = useState<any[]>([]);
+  const [ , setFavorites] = useState<any[]>([]);
   const [showModal, setShowModal] = useState(false);
 
   // AI states
@@ -32,7 +32,7 @@ const Centres = () => {
 
   // Add to Favorites
   const addToFavorites = (item:any) => {
-    const stored = JSON.parse(localStorage.getItem("favorites")) || [];
+    const stored = JSON.parse(localStorage.getItem("favorites"));
 
     const exists = stored.some((fav:any) => fav.id === item.name);
 

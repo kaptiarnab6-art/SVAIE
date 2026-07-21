@@ -12,7 +12,7 @@ const Spacecraft = () => {
   
   const [filtered, setFiltered] = useState<any[]>([]);
   const [search, setSearch] = useState<string>("");
-  const [favorites, setFavorites] = useState<any[]>([]);
+  const [ , setFavorites] = useState<any[]>([]);
   const [showModal, setShowModal] = useState(false);
 
   // AI states

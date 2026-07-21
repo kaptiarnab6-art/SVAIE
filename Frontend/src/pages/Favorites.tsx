@@ -4,7 +4,7 @@ const Favorites = () => {
   const [favorites, setFavorites] = useState<any[]>([]);
 
   useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem("favorites")) || [];
+    const stored = JSON.parse(localStorage.getItem("favorites"));
     setFavorites(stored);
   }, []);
 
