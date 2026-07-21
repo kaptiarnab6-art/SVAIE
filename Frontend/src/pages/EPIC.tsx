@@ -61,11 +61,12 @@ const EPIC = () => {
         <div style={{ maxWidth: "350px", width: "100%" }}>
           <input
             type="date"
+            placeholder="Select Date"
             className="form-control shadow rounded-pill px-4 py-2"
             value={date}
             onChange={(e) => setDate(e.target.value)}
             style={{
-              border: "2px solid #6300d3ff",
+              border: "2px solid #2dffc7ff",
               fontSize: "16px",
               cursor: "pointer"
             }}
