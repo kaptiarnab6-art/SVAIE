@@ -15,6 +15,7 @@ const NEO = () => {
       setInfo(res.data);
     } catch (err) {
       console.log(err);
+      alert(err)
     }
   };
 

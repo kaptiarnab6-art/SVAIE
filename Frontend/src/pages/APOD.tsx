@@ -16,6 +16,7 @@ const APOD = ()=>{
         }
         catch(err){
             console.log(err)
+            alert(err);
         }
     }
 
@@ -35,7 +36,9 @@ const APOD = ()=>{
 
         {/* Responsive Image */}
         <div className="col-lg-5 col-md-6 px-3">
-          <a href={info.url} target='_blank'>
+         {
+          info.media_type === "image" ? 
+           <a href={info.url} target='_blank'>
             <img
             src={info.url}
             alt={info.title}
@@ -43,6 +46,18 @@ const APOD = ()=>{
             style={{ objectFit: "cover", minHeight: "300px" }}
           />
           </a>
+          :
+           <a href={info.url} target='_blank'>
+            <iframe
+            src={info.url}
+            allowFullScreen
+            className="img-fluid w-100 h-100 rounded"
+            style={{ objectFit: "cover", minHeight: "300px" }}
+            >
+          </iframe>
+          <div>Click here to Watch</div>
+          </a>
+         }
         </div>
 
         {/* Content */}
