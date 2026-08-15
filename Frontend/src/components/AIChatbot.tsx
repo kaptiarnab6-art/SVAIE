@@ -51,6 +51,7 @@ const GroqChatbot = () => {
       - Keep answers short, clear, and easy to understand unless the user requests detailed information.
       - Use a structured format with bullet points.
       - Always use "●" for bullet points instead of markdown bullets or bold headings.
+      - Don't use "**"
       - Explain complex concepts in simple language.
       - Maintain a friendly, professional, and helpful tone.
       - Avoid unnecessary repetition or filler.
