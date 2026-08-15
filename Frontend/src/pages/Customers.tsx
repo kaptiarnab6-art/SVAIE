@@ -98,12 +98,11 @@ const Customers = () => {
                 <Explain why this satellite or mission was significant for ISRO and/or the customer country.>
 
                 ⭐ Fact:
-                <Provide one verified interesting fact only. If unavailable, write "Not confirmed".>
+                <Provide one verified interesting fact only.>
 
                 Rules:
                 - Use only verified information.
                 - Never guess missing values.
-                - If a field is unknown, write "Not confirmed".
                 - Keep the response concise and factual.
                 `
                 },

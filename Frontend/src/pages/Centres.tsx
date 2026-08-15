@@ -84,14 +84,14 @@ const Centres = () => {
                 🏢 Centre Name: <official name>
                 📌 Purpose: <main function of the centre>
                 🔧 Key Details:
-                - Location: <city/state if known, else "not confirmed">
+                - Location: <city/state if known, else don't provide>
                 - Primary Role: <engineering / research / launch support / tracking / etc.>
                 - Major Facilities: <labs, systems, missions supported>
                 - Notable Contributions: <key ISRO missions or technologies supported>
 
                 🌍 Importance to India: <why this centre is important for India's space program>
 
-                ⭐ Fact: <only verified historical or technical fact; if uncertain write "not confirmed">
+                ⭐ Fact: <only verified historical or technical fact">
                 `
                 },
               ],
