@@ -67,12 +67,12 @@ const Centres = () => {
           const res = await axios.post(
             "https://api.groq.com/openai/v1/chat/completions",
             {
-              model: "llama-3.3-70b-versatile",
+              model: "openai/gpt-oss-120b",
               messages: [
                 {
                   role: "system",
                   content:
-                    "You are an ISRO space organisation expert assistant. You provide accurate, structured, historically correct information about ISRO centres and facilities. Do NOT hallucinate or invent facts. If information is uncertain or not publicly verified, explicitly say 'not confirmed'. Focus on factual, institutional-level descriptions rather than assumptions."
+                    "You are an ISRO space organisation expert assistant. You provide accurate, structured, historically correct information about ISRO centres and facilities. Do NOT hallucinate or invent facts. Focus on factual, institutional-level descriptions rather than assumptions."
                 },
                 {
                   role: "user",

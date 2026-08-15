@@ -67,12 +67,12 @@ const Customers = () => {
           const res = await axios.post(
             "https://api.groq.com/openai/v1/chat/completions",
             {
-              model: "llama-3.3-70b-versatile",
+              model: "openai/gpt-oss-120b",
               messages: [
                 {
                   role: "system",
                   content:
-                    "You are an ISRO satellite expert. Provide accurate, historically correct, concise, and well-structured information about ISRO customer satellites. Do NOT hallucinate or invent specifications, mission details, launch dates, or operators. If any information is uncertain or not publicly verified, write 'Not confirmed'."
+                    "You are an ISRO satellite expert. Provide accurate, historically correct, concise, and well-structured information about ISRO customer satellites. Do NOT hallucinate or invent specifications, mission details, launch dates, or operators."
                 },
                 {
                   role: "user",
