@@ -10,27 +10,27 @@ const Home = () => {
   const [customers, setCustomers] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [s1, s2, s3, s4] = await Promise.all([
-          axios.get("https://isro.vercel.app/api/spacecrafts"),
-          axios.get("https://isro.vercel.app/api/launchers"),
-          axios.get("https://isro.vercel.app/api/centres"),
-          axios.get("https://isro.vercel.app/api/customer_satellites"),
-        ]);
+  const fetchData = async () => {
+    try {
+      const [s1, s2, s3, s4] = await Promise.all([
+        axios.get("https://isro.vercel.app/api/spacecrafts"),
+        axios.get("https://isro.vercel.app/api/launchers"),
+        axios.get("https://isro.vercel.app/api/centres"),
+        axios.get("https://isro.vercel.app/api/customer_satellites"),
+      ]);
 
-        setSpacecrafts(s1.data.spacecrafts || []);
-        setLaunchers(s2.data.launchers || []);
-        setCentres(s3.data.centres || []);
-        setCustomers(s4.data.customer_satellites || []);
-      } catch (err) {
-        console.log(err);
-      }
-
+      setSpacecrafts(s1.data.spacecrafts || []);
+      setLaunchers(s2.data.launchers || []);
+      setCentres(s3.data.centres || []);
+      setCustomers(s4.data.customer_satellites || []);
+    } catch (err) {
+      console.error(err);
+    } finally {
       setLoading(false);
-    };
+    }
+  };
 
+  useEffect(() => {
     fetchData();
   }, []);
 
