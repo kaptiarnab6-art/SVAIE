@@ -35,7 +35,7 @@ const GroqChatbot = () => {
       const res = await axios.post(
         "https://api.groq.com/openai/v1/chat/completions",
         {
-  model: "qwen/qwen3.6-27b",
+  model: "openai/gpt-oss-120b",
   messages: [
     {
       role: "system",
