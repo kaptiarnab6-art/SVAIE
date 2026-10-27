@@ -10,7 +10,7 @@ const features = [
   {
     title: "NASA Explorer",
     description: "Explore NASA missions, astronomy pictures, Galaxy images...",
-    bg_img: "/nasa_exp.jpg",
+    bg_img: "/nasa_exp.avif",
     icon: <Rocket size={45} className="text-primary" />,
     path: "/nasa_dashboard",
   },
@@ -18,14 +18,14 @@ const features = [
     title: "ISRO Explorer",
     description: "Discover ISRO satellites, launch vehicles, missions...",
     icon: <Satellite size={45} className="text-warning" />,
-    bg_img: "/isro_exp.jpg",
+    bg_img: "/isro_exp.avif",
     path: "/isro_dashboard",
   },
   {
     title: "Space Library",
     description: "Browse the Space in your palm......",
     icon: <Image size={45} className="text-danger" />,
-    bg_img: "/lib_exp.jpg",
+    bg_img: "/lib_exp.avif",
     path: "/space_library",
   }
 ];
@@ -100,7 +100,7 @@ export default function Home() {
           {features.map((item, index) => (
 
             <div className="card shadow rounded-5" key={index}>
-              <img className="card-img-top rounded-top-5" src= {`${item.bg_img}`} alt="Card image cap" style={{height: "14rem"}}/>
+              <img className="card-img-top rounded-top-5" src= {`${item.bg_img}`} alt="image not found" style={{height: "14rem"}}/>
               <div className="card-body">
                 <h5 className="card-title">{item.title}</h5>
                 <p className="card-text">{item.description}</p>
