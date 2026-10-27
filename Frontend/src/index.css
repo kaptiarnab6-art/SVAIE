@@ -259,8 +259,10 @@
 }
 
 .space-subtitle {
-  color: #ffffffff;
+  color: #ecfeffff;
   font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
   line-height: 1.8;
   margin-bottom: 0;
 }
@@ -273,7 +275,7 @@
 .space-card {
   border: 1px solid rgba(39, 228, 171, 0.59);
   border-radius: 15px;
-  background: linear-gradient(135deg, #e9ffe4d6 0%, #b8ecf5c7 50%, #b3afffdb 100%);
+  background: linear-gradient(135deg, #e9ffe4d6 0%, #b8ecf5c7 50%, #cac7fedb 100%);
   box-shadow: 0 8px 22px rgba(15, 23, 42, 0.10);
   overflow: hidden;
 
