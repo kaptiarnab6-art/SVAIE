@@ -275,7 +275,7 @@
 .space-card {
   border: 1px solid rgba(39, 228, 171, 0.59);
   border-radius: 15px;
-  background: linear-gradient(135deg, #e9ffe4d6 0%, #b8ecf5c7 50%, #cac7fedb 100%);
+  background: linear-gradient(135deg, #e9ffe4af 0%, #b8ecf5b3 50%, #cac7feaa 100%);
   box-shadow: 0 8px 22px rgba(15, 23, 42, 0.10);
   overflow: hidden;
 
@@ -397,3 +397,24 @@
   }
 }
 
+/* home page button*/
+.explore-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  background-color: #520e74ff;
+  color: white;
+  border: 1px solid #0f0c4dff;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+  background-color: #863dfaff;
+  color: white;
+  border-color: #49149cff;
+}
