@@ -10,6 +10,7 @@ const features = [
   {
     title: "NASA Explorer",
     description: "Explore NASA missions, astronomy pictures, Galaxy images...",
+    bg_img: "/nasa_exp.jpg",
     icon: <Rocket size={45} className="text-primary" />,
     path: "/nasa_dashboard",
   },
@@ -17,12 +18,14 @@ const features = [
     title: "ISRO Explorer",
     description: "Discover ISRO satellites, launch vehicles, missions...",
     icon: <Satellite size={45} className="text-warning" />,
+    bg_img: "/isro_exp.jpg",
     path: "/isro_dashboard",
   },
   {
     title: "Space Library",
     description: "Browse the Space in your palm......",
     icon: <Image size={45} className="text-danger" />,
+    bg_img: "/lib_exp.jpg",
     path: "/space_library",
   }
 ];
@@ -31,12 +34,40 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-dark text-white text-center py-5" style={{
-        background:
-          "linear-gradient(90deg, #020024, #090979, #00d4ff)"
-      }}>
-        <div className="container py-5">
 
+      <section
+        className="position-relative text-white text-center d-flex align-items-center justify-content-center overflow-hidden"
+        style={{ minHeight: "550px" }}
+      >
+        {/* Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="position-absolute top-0 start-0 w-100 h-100"
+          style={{
+            objectFit: "cover",
+            zIndex: 0,
+          }}
+        >
+          <source
+            src="/bg-video.mp4"
+            type="video/mp4"
+          />
+        </video>
+
+        {/* Dark Overlay */}
+        <div
+          className="position-absolute top-0 start-0 w-100 h-100"
+          style={{
+            backgroundColor: "rgba(12, 12, 12, 0.45)",
+            zIndex: 1,
+          }}
+        />
+
+        {/* Hero Content */}
+        <div className="container position-relative py-5" style={{ zIndex: 2 }}>
           <h1 className="display-3 fw-bold mb-4">
             Space Vision AI Explorer
           </h1>
@@ -46,59 +77,44 @@ export default function Home() {
             track launches and learn everything with AI.
           </p>
 
-          <Link to="/nasa_dashboard" className="btn btn-primary btn-lg me-3">
+          <Link
+            to="/nasa_dashboard"
+            className="btn btn-primary btn-lg me-3"
+          >
             Explore NASA
           </Link>
 
           <Link to="/chat" className="btn btn-outline-light btn-lg">
             Ask AI
           </Link>
-
         </div>
       </section>
 
       {/* Features */}
       <section className="container py-5">
-
         <h2 className="text-center fw-bold mb-5">
           Explore Space
         </h2>
 
-        <div className="row g-4">
-
+        <div className="card-group gap-3">
           {features.map((item, index) => (
-            <div className="col-md-6 col-lg-4" key={index}>
 
-              <div className="card shadow h-100 border-0">
-
-                <div className="card-body text-center p-4">
-
-                  <div className="mb-3">
-                    {item.icon}
-                  </div>
-
-                  <h4>{item.title}</h4>
-
-                  <p className="text-muted">
-                    {item.description}
-                  </p>
-
-                  <Link
+            <div className="card shadow rounded-5" key={index}>
+              <img className="card-img-top rounded-top-5" src= {`${item.bg_img}`} alt="Card image cap" style={{height: "14rem"}}/>
+              <div className="card-body">
+                <h5 className="card-title">{item.title}</h5>
+                <p className="card-text">{item.description}</p>
+                <Link
                     to={item.path}
-                    className="btn btn-outline-primary"
+                    className="btn btn-outline-primary m-1"
                   >
                     Explore
-                  </Link>
-
-                </div>
-
+                </Link>
               </div>
-
             </div>
+
           ))}
-
-        </div>
-
+      </div>
       </section>
 
       {/* About */}

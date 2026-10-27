@@ -189,7 +189,7 @@ STRICT OUTPUT RULES:
 ● Keep the response concise, factual, professional, and technically accurate.
 `
   }
-                      ],
+],
             temperature: 0.3,
           },
           {

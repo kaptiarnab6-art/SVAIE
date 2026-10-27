@@ -12,7 +12,7 @@ const Navbar = () => {
     <nav
   className="navbar navbar-expand-lg bg-dark navbar-dark shadow sticky-top" style={{
         background:
-          "linear-gradient(90deg, #1e002eff, #080863ff, #48082eff)"
+          "linear-gradient(90deg, #20251dff, #04040bff, #1b0633ff)"
       }}>
 
       <div className="container">
@@ -92,7 +92,7 @@ const Navbar = () => {
                 className="btn btn-outline-dark text-white rounded-pill px-3"
                 style={{
         background:
-          "linear-gradient(90deg, #ff0062ff, #ff00b7ff)"
+          "linear-gradient(90deg, #3700ffff, #ff00b7ff)"
       }}
               >
                 🤖 AI Chat
