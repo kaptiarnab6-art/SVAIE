@@ -34,16 +34,15 @@ export default function Home() {
   return (
     <>
       <div className="container-fluid py-3"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(5, 10, 30, 0.65), rgba(5, 10, 30, 0.85)),
-            url("/home_bg.avif")
-          `,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
-        }}>
+       style={{
+  backgroundImage: `
+    linear-gradient(rgba(5, 10, 30, 0.65), rgba(5, 10, 30, 0.85)),
+    url("/home_bg.avif")
+  `,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+}}>
 
       {/* Hero Section */}
 
