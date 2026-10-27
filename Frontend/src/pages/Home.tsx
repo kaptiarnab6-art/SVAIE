@@ -123,41 +123,30 @@ export default function Home() {
     <div className="row g-4">
       {features.map((item, index) => (
         <div className="col-12 col-md-6 col-lg-4" key={index}>
-          <div
-            className="card shadow rounded-5 h-100 overflow-hidden"
-            style={{
-              background: "#e8fdfd",
-              border: "none",
-            }}
-          >
+          <div className="card shadow rounded-5 h-100 overflow-hidden" style={{background:"#e8fddbff"}}>
             <img
               className="card-img-top"
-              src={item.bg_img}
-              alt={item.title}
-              loading="lazy"
-              decoding="async"
-              style={{
-                height: "14rem",
-                objectFit: "cover",
+          src={item.bg_img}
+          alt={item.title}
+          loading="lazy"
+          decoding="async"
+          style={{
+            height: "14rem",
+            objectFit: "cover",
               }}
             />
 
-            <div
-              className="card-body d-flex flex-column"
-              style={{
-                background:
-                  "linear-gradient(135deg, #b5ff8763, #7fd6ff74, #ff93d776)",
-              }}
-            >
+            <div className="card-body d-flex flex-column" style={{ background: `linear-gradient(135deg, #b5ff8763, #7fd6ff74, #ff93d776) border-box
+            `}}>
               <h5 className="card-title">{item.title}</h5>
 
               <p className="card-text">{item.description}</p>
 
-              <div className="mt-auto">
-                <Link to={item.path} className="explore-btn m-1">
-                  Explore
-                </Link>
-              </div>
+             <div className="mt-auto">
+              <Link to={item.path} className="explore-btn m-1">
+                Explore
+              </Link>
+            </div>
             </div>
           </div>
         </div>
