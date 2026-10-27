@@ -219,3 +219,179 @@
 *::-webkit-scrollbar {
   display: none;
 }
+
+/*nasa land page*/
+.space-home {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(
+      rgba(242, 252, 224, 0.16),
+      rgba(0, 0, 0, 0.07)
+    ),
+    url("/nasa_exp.avif");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  display: flex;
+  align-items: center;
+}
+
+.space-container {
+  padding-top: 0px;
+  padding-bottom: 60px;
+}
+
+/* Header */
+.space-header {
+  margin-bottom: 52px;
+}
+
+.space-header h1 {
+  color: #ffffffff;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+
+.space-subtitle {
+  color: #ffffffff;
+  font-size: 20px;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+/* Cards */
+.space-cards {
+  align-items: stretch;
+}
+
+.space-card {
+  border: 1px solid rgba(39, 228, 171, 0.59);
+  border-radius: 15px;
+  background: linear-gradient(135deg, #e9ffe4d6 0%, #b8ecf5c7 50%, #b3afffdb 100%);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.10);
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.space-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.15);
+}
+
+.space-card .card-body {
+  padding: 28px 22px 30px;
+}
+
+/* Icon */
+.space-icon {
+  width: 106px;
+  height: 106px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #c0ffe9eb;
+  color: #2875ed;
+  font-size: 44px;
+}
+
+/* Card Text */
+.space-card-title {
+  color: #203300ff;
+  font-size: 21px;
+  margin-bottom: 12px;
+}
+
+.space-description {
+  color: #2c2c2cff;
+  font-size: 16px;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+/* Explore Button */
+.space-button {
+  min-width: 136px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 50px;
+
+  background-color: #7d28edff;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffffff;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.space-button:hover {
+  background-color: #175ac5;
+}
+
+/* Tablet and Mobile */
+@media (max-width: 991.98px) {
+  .space-container {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .space-header {
+    margin-bottom: 35px;
+  }
+
+  .space-icon {
+    width: 90px;
+    height: 90px;
+    font-size: 38px;
+  }
+
+  .space-card .card-body {
+    padding: 25px 20px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .space-home {
+    background-attachment: scroll;
+  }
+
+  .space-container {
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+
+  .space-header h1 {
+    font-size: 2.1rem;
+  }
+
+  .space-subtitle {
+    font-size: 16px;
+  }
+
+  .space-card .card-body {
+    padding: 28px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .space-card,
+  .space-button {
+    transition: none;
+  }
+
+  .space-card:hover {
+    transform: none;
+  }
+}
+

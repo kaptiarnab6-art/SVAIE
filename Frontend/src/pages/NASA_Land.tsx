@@ -33,83 +33,63 @@ const cards = [
 
 function App() {
   return (
-    <div className="container py-4">
+    <div className="space-home">
 
-      {/* Header */}
-      <div className="text-center mb-5">
+      <div className="container space-container">
 
-        <h1 className="fw-bold display-5">
-          NASA Space Explorer
-        </h1>
+        {/* Header */}
+        <div className="text-center space-header">
+          <h1 className="fw-bold display-5">
+            NASA Space Explorer
+          </h1>
 
-        <p className="text-muted fs-5">
-          Explore NASA's space images, Earth observations,
-          and astronomy data.
-        </p>
+          <p className="space-subtitle">
+            Explore NASA's space images, Earth observations,
+            <br className="d-none d-md-block" /> and astronomy data.
+          </p>
+        </div>
 
-      </div>
-
-
-      {/* Cards */}
-
-      <div className="row g-4">
-
-        {cards.map((card, index) => (
-
-          <div
-            className="col-md-6 col-lg-3"
-            key={index}
-          >
-
+        {/* Cards */}
+        <div className="row g-4">
+          {cards.map((card, index) => (
             <div
-              className="card h-100 border-0 shadow-lg rounded-4"
+              className="col-12 col-sm-6 col-lg-3"
+              key={card.path ?? index}
             >
+              <div className="space-card h-100">
 
-              <div className="card-body text-center d-flex flex-column p-4">
+                <div className="card-body text-center d-flex flex-column">
 
+                  {/* Icon */}
+                  <div className="space-icon mx-auto mb-4">
+                    {card.icon}
+                  </div>
 
-                {/* Icon */}
+                  {/* Title */}
+                  <h5 className="fw-bold space-card-title">
+                    {card.title}
+                  </h5>
 
-                <div
-                  className="rounded-circle bg-primary bg-opacity-10 mx-auto mb-4 d-flex align-items-center justify-content-center"
-                  style={{
-                    width: "90px",
-                    height: "90px",
-                    fontSize: "45px"
-                  }}
-                >
-                  {card.icon}
+                  {/* Description */}
+                  <p className="space-description flex-grow-1">
+                    {card.description}
+                  </p>
+
+                  {/* Explore Button */}
+                  <Link
+                    to={card.path}
+                    className="space-button mx-auto"
+                  >
+                    Explore
+                  </Link>
+
                 </div>
-
-
-                <h5 className="fw-bold">
-                  {card.title}
-                </h5>
-
-
-                <p className="text-muted flex-grow-1">
-                  {card.description}
-                </p>
-
-
-                <Link
-                  to={card.path}
-                  className="btn btn-primary rounded-pill fw-semibold mt-3"
-                >
-                  Explore
-                </Link>
-
-
               </div>
-
             </div>
-
-          </div>
-
-        ))}
+          ))}
+        </div>
 
       </div>
-
     </div>
   );
 }
