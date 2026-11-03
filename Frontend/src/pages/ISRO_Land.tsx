@@ -34,144 +34,254 @@ const Home = () => {
     fetchData();
   }, []);
 
-  if (loading) return <Loader />;
+
 
   return (
-    <div className="container py-3">
+    <div className="isro-home">
 
-  {/* Heading */}
-  <div className="text-center mb-5">
-    <h1 className="fw-bold">ISRO Explorer</h1>
-    <p className="text-muted">
-      Explore India's space missions, launch vehicles, satellites and research centres.
-    </p>
-  </div>
+      <div className="container py-2">
 
-  <div className="row g-4">
+        {/* HERO SECTION */}
+        <div className="text-center isro-hero mb-5">
 
-    {/* Spacecrafts */}
-    <div className="col-md-6 col-lg-4">
-      <Link to="/spacecrafts" state={{data:spacecrafts}} className="text-decoration-none">
-        <div className="card h-100 shadow border-0">
-          <div className="card-body text-center">
-            <div className="display-3">🛰️</div>
+          <span className="badge rounded-pill bg-info text-dark px-3 py-2 mb-3">
+            🇮🇳 India's Space Exploration
+          </span>
 
-            <h4 className="mt-3">Spacecrafts</h4>
+          <h1 className="display-3 fw-bold text-white">
+            ISRO <span className="hero-highlight">Explorer</span>
+          </h1>
 
-            <h1 className="text-primary fw-bold">
-              {spacecrafts.length}
-            </h1>
+          <p className="text-white-50 fs-5 mx-auto hero-description">
+            Discover India's journey beyond Earth. Explore spacecraft,
+            launch vehicles, satellites and space research centres.
+          </p>
 
-            <p className="text-muted">
-              Explore all ISRO spacecrafts...
-            </p>
-          </div>
+          <div className="hero-line mx-auto"></div>
+
         </div>
-      </Link>
-    </div>
 
-    {/* Launchers */}
-    <div className="col-md-6 col-lg-4">
-      <Link to="/launchers" state={{data:launchers}} className="text-decoration-none">
-        <div className="card h-100 shadow border-0">
-          <div className="card-body text-center">
-            <div className="display-3">🚀</div>
+        {/* STATISTICS */}
+        <div className="row g-4">
 
-            <h4 className="mt-3">Launchers</h4>
+          {/* SPACECRAFTS */}
+          <div className="col-12 col-md-6 col-lg-4">
+            <Link
+              to="/spacecrafts"
+              state={{ data: spacecrafts }}
+              className="text-decoration-none"
+            >
+              <div className="card isro-card h-100 border-0">
+                <div className="card-body p-4">
 
-            <h1 className="text-success fw-bold">
-              {launchers.length}
-            </h1>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div className="isro-icon icon-blue">
+                      🛰️
+                    </div>
+                    <span className="card-number">01</span>
+                  </div>
 
-            <p className="text-muted">
-              Browse launch vehicles developed by ISRO...
-            </p>
+                  <h4 className="fw-bold mt-4">Spacecrafts</h4>
+
+                  <h1 className="fw-bold text-primary">
+                    {spacecrafts.length}
+                  </h1>
+
+                  <p className="text-secondary">
+                    Discover India's spacecraft and space exploration missions.
+                  </p>
+
+                  <div className="card-explore text-primary fw-bold">
+                    Explore Spacecrafts <span>→</span>
+                  </div>
+
+                </div>
+              </div>
+            </Link>
           </div>
-        </div>
-      </Link>
-    </div>
 
-    {/* Centres */}
-    <div className="col-md-6 col-lg-4">
-      <Link to="/centres" state={{data:centres}} className="text-decoration-none">
-        <div className="card h-100 shadow border-0">
-          <div className="card-body text-center">
-            <div className="display-3">🏢</div>
+          {/* LAUNCHERS */}
+          <div className="col-12 col-md-6 col-lg-4">
+            <Link
+              to="/launchers"
+              state={{ data: launchers }}
+              className="text-decoration-none"
+            >
+              <div className="card isro-card h-100 border-0">
+                <div className="card-body p-4">
 
-            <h4 className="mt-3">Centres</h4>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div className="isro-icon icon-green">
+                      🚀
+                    </div>
+                    <span className="card-number">02</span>
+                  </div>
 
-            <h1 className="text-warning fw-bold">
-              {centres.length}
-            </h1>
+                  <h4 className="fw-bold mt-4">Launch Vehicles</h4>
 
-            <p className="text-muted">
-              View ISRO research and launch centres...
-            </p>
+                  <h1 className="fw-bold text-success">
+                    {launchers.length}
+                  </h1>
+
+                  <p className="text-secondary">
+                    Explore powerful rockets developed by ISRO.
+                  </p>
+
+                  <div className="card-explore text-success fw-bold">
+                    Explore Launchers <span>→</span>
+                  </div>
+
+                </div>
+              </div>
+            </Link>
           </div>
-        </div>
-      </Link>
-    </div>
 
-    {/* Customers */}
-    <div className="col-md-6 col-lg-4">
-      <Link to="/customers" state={{data:customers}} className="text-decoration-none">
-        <div className="card h-100 shadow border-0">
-          <div className="card-body text-center">
-            <div className="display-3">📡</div>
+          {/* CENTRES */}
+          <div className="col-12 col-md-6 col-lg-4">
+            <Link
+              to="/centres"
+              state={{ data: centres }}
+              className="text-decoration-none"
+            >
+              <div className="card isro-card h-100 border-0">
+                <div className="card-body p-4">
 
-            <h4 className="mt-3">Customers</h4>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div className="isro-icon icon-orange">
+                      🏢
+                    </div>
+                    <span className="card-number">03</span>
+                  </div>
 
-            <h1 className="text-info fw-bold">
-              {customers.length}
-            </h1>
+                  <h4 className="fw-bold mt-4">Research Centres</h4>
 
-            <p className="text-muted">
-              International customer satellites...
-            </p>
+                  <h1 className="fw-bold text-warning">
+                    {centres.length}
+                  </h1>
+
+                  <p className="text-secondary">
+                    Discover ISRO's research, development and launch centres.
+                  </p>
+
+                  <div className="card-explore text-warning fw-bold">
+                    Explore Centres <span>→</span>
+                  </div>
+
+                </div>
+              </div>
+            </Link>
           </div>
-        </div>
-      </Link>
-    </div>
 
-    {/* Favorites */}
-    <div className="col-md-6 col-lg-4">
-      <Link to="/favorites" className="text-decoration-none">
-        <div className="card h-100 shadow border-0">
-          <div className="card-body text-center">
-            <div className="display-3">⭐</div>
+          {/* CUSTOMERS */}
+          <div className="col-12 col-md-6 col-lg-4">
+            <Link
+              to="/customers"
+              state={{ data: customers }}
+              className="text-decoration-none"
+            >
+              <div className="card isro-card h-100 border-0">
+                <div className="card-body p-4">
 
-            <h4 className="mt-3">Favorites</h4>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div className="isro-icon icon-purple">
+                      📡
+                    </div>
+                    <span className="card-number">04</span>
+                  </div>
 
-            <h1 className="text-danger fw-bold">
-              ❤
-            </h1>
+                  <h4 className="fw-bold mt-4">Customer Satellites</h4>
 
-            <p className="text-muted">
-              View your saved favourites...
-            </p>
+                  <h1 className="fw-bold text-info">
+                    {customers.length}
+                  </h1>
+
+                  <p className="text-secondary">
+                    Explore satellites launched for international customers.
+                  </p>
+
+                  <div className="card-explore text-info fw-bold">
+                    Explore Satellites <span>→</span>
+                  </div>
+
+                </div>
+              </div>
+            </Link>
           </div>
-        </div>
-      </Link>
-    </div>
 
-    {/* Ask AI */}
-    <div className="col-md-6 col-lg-4">
-      <Link to="/chat" className="text-decoration-none">
-        <div className="card h-100 shadow border-0">
-          <div className="card-body text-center">
-            <div className="display-3">🤖</div>
+          {/* FAVORITES */}
+          <div className="col-12 col-md-6 col-lg-4">
+            <Link
+              to="/favorites"
+              className="text-decoration-none"
+            >
+              <div className="card isro-card h-100 border-0">
+                <div className="card-body p-4">
 
-            <button className="btn btn-danger mt-5 rounded-circle p-3">
-              Let's Ask to AI
-            </button>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div className="isro-icon icon-pink">
+                      ⭐
+                    </div>
+                    <span className="card-number">05</span>
+                  </div>
+
+                  <h4 className="fw-bold mt-4">My Favorites</h4>
+
+                  <h1 className="fw-bold text-danger">
+                    ❤
+                  </h1>
+
+                  <p className="text-secondary">
+                    Keep your favorite space missions and discoveries together.
+                  </p>
+
+                  <div className="card-explore text-danger fw-bold">
+                    View Favorites <span>→</span>
+                  </div>
+
+                </div>
+              </div>
+            </Link>
           </div>
+
+          {/* AI CHAT */}
+          <div className="col-12 col-md-6 col-lg-4">
+            <Link
+              to="/chat"
+              className="text-decoration-none"
+            >
+              <div className="card isro-card ai-card h-100 border-0">
+                <div className="card-body p-4">
+
+                  <div className="d-flex justify-content-between align-items-center">
+                    <div className="isro-icon icon-ai">
+                      🤖
+                    </div>
+                    <span className="card-number">06</span>
+                  </div>
+
+                  <h4 className="fw-bold mt-4">Space AI Assistant</h4>
+
+                  <h3 className="fw-bold text-primary mt-3">
+                    Ask Anything!
+                  </h3>
+
+                  <p className="text-secondary">
+                    Have questions about space? Talk with your AI space assistant.
+                  </p>
+
+                  <div className="card-explore text-primary fw-bold">
+                    Start Conversation <span>→</span>
+                  </div>
+
+                </div>
+              </div>
+            </Link>
+          </div>
+
         </div>
-      </Link>
+
+      </div>
     </div>
-
-  </div>
-
-</div>
   );
 };
 

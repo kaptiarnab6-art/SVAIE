@@ -418,3 +418,203 @@
   color: white;
   border-color: #49149cff;
 }
+
+/*isro bg*/
+
+.isro-home {
+  min-height: 100vh;
+  padding: 30px;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.36),
+      rgba(25, 47, 77, 0.52)
+    ),
+    url("/isro_exp.avif");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Avoid fixed background */
+  background-attachment: scroll;
+}
+
+/* Cards */
+.isro-home .card {
+  background: #ffffff;
+  border-radius: 16px;
+  transition: transform 0.2s ease;
+}
+
+.isro-home .card:hover {
+  transform: translateY(-4px);
+}
+
+
+.hero-highlight {
+  color: #55d6ff;
+}
+
+.hero-description {
+  max-width: 650px;
+  line-height: 1.7;
+}
+
+.hero-line {
+  width: 90px;
+  height: 4px;
+  border-radius: 10px;
+  background: linear-gradient(
+    to right,
+    #0dcaf0,
+    #6f42c1
+  );
+  margin-top: 25px;
+}
+
+/* CARDS */
+.isro-card {
+  border-radius: 22px !important;
+  background: #ffffff;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.isro-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+.isro-card h4 {
+  color: #17233c;
+}
+
+.isro-card p {
+  min-height: 48px;
+  line-height: 1.6;
+}
+
+.card-number {
+  font-size: 14px;
+  font-weight: bold;
+  color: #adb5bd;
+}
+
+/* ICONS */
+.isro-icon {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  border-radius: 18px;
+}
+
+.icon-blue {
+  background: #e3f2ff;
+}
+
+.icon-green {
+  background: #e0f8e9;
+}
+
+.icon-orange {
+  background: #fff0d9;
+}
+
+.icon-purple {
+  background: #eee5ff;
+}
+
+.icon-pink {
+  background: #ffe4ee;
+}
+
+.icon-ai {
+  background: #e3eaff;
+}
+
+/* CARD EXPLORE TEXT */
+.card-explore {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.card-explore span {
+  font-size: 22px;
+  transition: transform 0.2s ease;
+}
+
+.isro-card:hover .card-explore span {
+  transform: translateX(6px);
+}
+
+/* AI CARD */
+.ai-card {
+  background: linear-gradient(
+    145deg,
+    #ffffff,
+    #eaf2ff
+  );
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .isro-hero {
+    padding-top: 20px;
+  }
+
+  .isro-hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-description {
+    font-size: 15px !important;
+  }
+
+  .isro-card:hover {
+    transform: none;
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  .isro-home {
+    padding: 15px;
+  }
+
+  .isro-home .card:hover {
+    transform: none;
+  }
+}
+
+
+
+/*APOD*/
+
+.apod-explanation {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+
+.apod-explanation a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.apod-explanation a:hover {
+  text-decoration: underline;
+}
+
+.apod-explanation strong {
+  font-weight: 700;
+}
+
+
