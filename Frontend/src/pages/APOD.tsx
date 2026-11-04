@@ -15,6 +15,7 @@ const APOD = () => {
       );
 
       setAllData(res.data);
+      console.log(allData);
       setInfo(res.data[0]);
     } catch (err) {
       console.log(err);

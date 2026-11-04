@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Loader from "../components/Loader";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -8,7 +7,6 @@ const Home = () => {
   const [launchers, setLaunchers] = useState<any[]>([]);
   const [centres, setCentres] = useState<any[]>([]);
   const [customers, setCustomers] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
     try {
@@ -26,7 +24,7 @@ const Home = () => {
     } catch (err) {
       console.error(err);
     } finally {
-      setLoading(false);
+      // setLoading(false);
     }
   };
 
