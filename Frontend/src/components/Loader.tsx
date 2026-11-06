@@ -10,7 +10,7 @@ const Loader = () => {
 
         {/* Bootstrap Spinner */}
         <div
-          className="spinner-border text-white"
+          className="spinner-border text-primary"
           role="status"
           style={{ width: "3rem", height: "3rem" }}
         >

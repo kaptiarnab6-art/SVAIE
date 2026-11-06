@@ -25,7 +25,7 @@ const features = [
     title: "Space Library",
     description: "Browse the Space in your palm......",
     icon: <Image size={45} className="text-danger" />,
-    bg_img: "/lib_exp.avif",
+    bg_img: "/space_library_bg.jpg",
     path: "/space_library",
   }
 ];

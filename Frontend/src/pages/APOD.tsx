@@ -40,20 +40,52 @@ const APOD = () => {
     '<a target="_blank" rel="noopener noreferrer" '
   );
 
-  return (
-    <div className="container py-4">
+ 
+return (
+  <div style={{ position: "relative", minHeight: "100vh" }}>
 
-      <h2 className="text-center fw-bold text-primary mb-4">
-        Astronomy Picture of the Day
+    {/* FIXED SPACE BACKGROUND */}
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100vh",
+        backgroundImage: `
+          linear-gradient(
+            rgba(2, 6, 30, 0.75),
+            rgba(2, 6, 30, 0.62)
+          ),
+          url("/apod_bg.avif")
+        `,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        zIndex: -1,
+      }}
+    />
+
+    {/* SCROLLABLE CONTENT */}
+    <div className="container py-4 position-relative">
+
+      <h2 className="text-center fw-bold text-white mb-4">
+        🪐 Astronomy Picture of the Day
       </h2>
 
       {info ? (
-        <div className="card shadow-lg border-0 rounded-4 overflow-hidden">
+        <div
+          className="card shadow-lg border-0 rounded-4 overflow-hidden"
+          style={{
+            background: "rgba(255, 255, 255, 0.96)",
+            backdropFilter: "blur(10px)",
+          }}
+        >
 
           <div className="row g-0 align-items-center">
 
             {/* Image or Video */}
-            <div className="col-lg-5 col-md-6 px-3">
+            <div className="col-lg-5 col-md-6 px-3 py-3">
 
               {info.media_type === "image" ? (
                 <a
@@ -73,6 +105,7 @@ const APOD = () => {
                 </a>
               ) : (
                 <div>
+
                   <iframe
                     src={info.url}
                     title={info.title}
@@ -88,11 +121,13 @@ const APOD = () => {
                     href={info.url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="text-decoration-none"
                   >
-                    <div className="text-center mt-2">
-                      Click here to Watch
+                    <div className="text-center mt-2 fw-semibold">
+                      ▶ Click here to Watch
                     </div>
                   </a>
+
                 </div>
               )}
 
@@ -103,7 +138,7 @@ const APOD = () => {
 
               <div className="card-body p-4">
 
-                <h3 className="fw-bold">
+                <h3 className="fw-bold text-dark">
                   {info.title}
                 </h3>
 
@@ -119,7 +154,10 @@ const APOD = () => {
                 {/* Formatted Explanation */}
                 <div
                   className="apod-explanation text-secondary"
-                  style={{ textAlign: "justify", lineHeight: "1.8" }}
+                  style={{
+                    textAlign: "justify",
+                    lineHeight: "1.8",
+                  }}
                   dangerouslySetInnerHTML={{
                     __html: formattedHTML,
                   }}
@@ -136,7 +174,8 @@ const APOD = () => {
       )}
 
     </div>
-  );
-};
+  </div>
+);
+}
 
 export default APOD;

@@ -80,143 +80,196 @@ const NASA_ivl = () => {
 
 
   return (
-    <div className="container py-4">
+    <div style={{ position: "relative", minHeight: "100vh" }}>
 
-      <h2 className="text-center fw-bold mb-4">
-        🪐 Explore Space Topics
-      </h2>
+    {/* FIXED BACKGROUND IMAGE */}
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100vh",
+        backgroundImage: `
+          linear-gradient(
+            rgba(30, 2, 24, 0.67),
+            rgba(3, 26, 18, 0.59)
+          ),
+          url("/space_library_bg.jpg")
+        `,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        zIndex: -1,
+      }}
+    />
 
-      {/* Topic Buttons */}
+    {/* SCROLLABLE CONTENT */}
+    <div className="container-fluid py-4 position-relative">
 
-      <div className="d-flex flex-wrap justify-content-center gap-2 mb-4">
-        {topics.map((topic) => (
-          <button
-            key={topic}
-            onClick={() => {
-              setLink(topic);
-              setTitle(topic);
-              setSearch("");
-            }}
-            className={`btn rounded-pill px-4 py-2 fw-semibold ${
-              link === topic
-                ? "btn-primary shadow"
-                : "btn-outline-primary"
-            }`}
-          >
-            {topic}
-          </button>
-        ))}
-      </div>
+      <div className="container">
 
-      {loading ? (
-        <Loader />
-      ) : info ? (
-        <>
-          <h3 className="text-center fw-bold mb-4">
-            NASA {title} Images
-          </h3>
+        {/* Main Heading */}
+        <h2 className="text-center fw-bold mb-4 text-white">
+          🪐 Explore Space Topics
+        </h2>
 
-          <div
-            className="sticky-top bg-transparent"
-            style={{ top: "62px", zIndex: 10 }}
-          >
-            <SearchBar value={search} onChange={setSearch} />
-          </div>
+        {/* Topic Buttons */}
+        <div className="d-flex flex-wrap justify-content-center gap-2 mb-4">
 
-          <div className="row g-4">
+          {topics.map((topic) => (
+            <button
+              key={topic}
+              onClick={() => {
+                setLink(topic);
+                setTitle(topic);
+                setSearch("");
+              }}
+              className={`btn rounded-pill px-4 py-2 fw-semibold ${
+                link === topic
+                  ? "btn-primary shadow"
+                  : "btn-outline-light"
+              }`}
+            >
+              {topic}
+            </button>
+          ))}
 
-            {info.items.length > 0 ? (
-              info.items.map((item: any, index: number) => (
-                <div className="col-lg-4 col-md-6" key={index}>
+        </div>
 
-                  <div className="card h-100 shadow border-0">
+        {loading ? (
+          <Loader />
+        ) : info ? (
+          <>
 
-                    {item.links?.[0]?.href ? (
-                      <img
-                        src={item.links[0].href}
-                        className="card-img-top"
-                        style={{
-                          height: 230,
-                          objectFit: "cover",
-                        }}
-                        alt=""
-                      />
-                    ) : (
-                      <h4 className="text-center p-5">
-                        😔 No Image Available
-                      </h4>
-                    )}
+            {/* Result Heading */}
+            <h3 className="text-center fw-bold mb-4 text-white">
+              NASA {title} Images
+            </h3>
 
-                    <div className="card-body d-flex flex-column">
+            {/* Search Bar */}
+            <div
+              className="sticky-top bg-transparent"
+              style={{ top: "62px", zIndex: 10 }}
+            >
+              <SearchBar value={search} onChange={setSearch} />
+            </div>
 
-                      <h5>{item.data?.[0]?.title}</h5>
+            {/* NASA Image Cards */}
+            <div className="row g-4 mt-2">
 
-                      <p className="text-muted flex-grow-1">
+              {info.items.length > 0 ? (
 
-                        {item.data?.[0]?.description ? (
-                          <>
-                            {item.data[0].description.length > 120
-                              ? item.data[0].description.slice(0, 120) + "..."
-                              : item.data[0].description }
+                info.items.map((item: any, index: number) => (
+                  <div className="col-lg-4 col-md-6" key={index}>
 
-                            {item.data[0].description.length > 120 && (
-                              <button
-                                className="btn btn-link btn-sm p-0 ms-2"
-                                data-bs-toggle="modal"
-                                data-bs-target="#detailsModal"
-                                onClick={() => setSelectedItem(item)}
-                              >
-                                More
-                              </button>
-                            )
-                          }
-                          </>
-                        ) : (
-                          "No Description"
-                        )}
-                      </p>
+                    <div
+                      className="card h-100 shadow border-0"
+                      style={{
+                        background: "rgba(255, 255, 255, 0.96)",
+                        borderRadius: "15px",
+                        overflow: "hidden",
+                      }}
+                    >
 
-                      {item.links?.[0]?.href && (
-                        <a
-                          href={item.links[0].href}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="btn btn-info rounded-top-pill mb-1"
-                        >
-                          View Image
-                        </a>
+                      {/* NASA Image */}
+                      {item.links?.[0]?.href ? (
+                        <img
+                          src={item.links[0].href}
+                          className="card-img-top"
+                          style={{
+                            height: 230,
+                            objectFit: "cover",
+                          }}
+                          alt={item.data?.[0]?.title || "NASA Image"}
+                        />
+                      ) : (
+                        <h4 className="text-center p-5">
+                          😔 No Image Available
+                        </h4>
                       )}
 
-                      <button
-                        className="btn btn-dark rounded-bottom-pill"
-                        data-bs-toggle="modal"
-                        data-bs-target="#detailsModal"
-                        onClick={() => setSelectedItem(item)}
-                      >
-                        Explore
-                      </button>
+                      {/* Card Body */}
+                      <div className="card-body d-flex flex-column">
 
+                        <h5 className="fw-bold">
+                          {item.data?.[0]?.title}
+                        </h5>
+
+                        <p className="text-muted flex-grow-1">
+
+                          {item.data?.[0]?.description ? (
+                            <>
+                              {item.data[0].description.length > 120
+                                ? item.data[0].description.slice(0, 120) + "..."
+                                : item.data[0].description}
+
+                              {item.data[0].description.length > 120 && (
+                                <button
+                                  className="btn btn-link btn-sm p-0 ms-2"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#detailsModal"
+                                  onClick={() => setSelectedItem(item)}
+                                >
+                                  More
+                                </button>
+                              )}
+                            </>
+                          ) : (
+                            "No Description"
+                          )}
+
+                        </p>
+
+                        {/* View Image Button */}
+                        {item.links?.[0]?.href && (
+                          <a
+                            href={item.links[0].href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="btn btn-info rounded-pill mb-2"
+                          >
+                            View Image
+                          </a>
+                        )}
+
+                        {/* Explore Button */}
+                        <button
+                          className="btn btn-dark rounded-pill"
+                          data-bs-toggle="modal"
+                          data-bs-target="#detailsModal"
+                          onClick={() => setSelectedItem(item)}
+                        >
+                          <i className="bi bi-stars me-2"></i>
+                          Explore
+                        </button>
+
+                      </div>
                     </div>
+
                   </div>
+                ))
 
-                </div>
-              ))
-            ) : (
-              <h3 className="text-center">
-                No Result Found
-              </h3>
-            )}
+              ) : (
+                <h3 className="text-center text-white mt-4">
+                  No Result Found
+                </h3>
+              )}
 
-          </div>
-        </>
-      ) : (
-        <h4 className="text-center mt-5">
-          😊 Please select a topic
-        </h4>
-      )}
+            </div>
 
-      {/* Bootstrap Modal */}
+          </>
+        ) : (
 
+          <h4 className="text-center mt-5 text-white">
+            😊 Please select a topic
+          </h4>
+
+        )}
+
+      </div>
+
+      {/* BOOTSTRAP MODAL */}
       <div
         className="modal fade"
         id="detailsModal"
@@ -226,9 +279,10 @@ const NASA_ivl = () => {
 
           <div className="modal-content">
 
+            {/* Modal Header */}
             <div className="modal-header">
 
-              <h4 className="modal-title">
+              <h4 className="modal-title fw-bold">
                 {selectedItem?.data?.[0]?.title}
               </h4>
 
@@ -239,11 +293,13 @@ const NASA_ivl = () => {
 
             </div>
 
+            {/* Modal Body */}
             <div className="modal-body text-center">
 
               {selectedItem && (
                 <>
 
+                  {/* Selected Image */}
                   {selectedItem.links?.[0]?.href && (
                     <img
                       src={selectedItem.links[0].href}
@@ -253,21 +309,22 @@ const NASA_ivl = () => {
                         maxWidth: "500px",
                         objectFit: "contain",
                       }}
-                      alt="img"
+                      alt="NASA Image"
                     />
                   )}
 
+                  {/* Details Table */}
                   <table className="table table-bordered">
 
                     <tbody>
 
                       <tr>
-                        <th style={{width:"200"}}>Title</th>
+                        <th style={{ width: "200px" }}>Title</th>
                         <td>{selectedItem.data?.[0]?.title}</td>
                       </tr>
 
                       <tr>
-                        <th style={{width:"200"}}>NASA ID</th>
+                        <th style={{ width: "200px" }}>NASA ID</th>
                         <td>{selectedItem.data?.[0]?.nasa_id}</td>
                       </tr>
 
@@ -278,7 +335,7 @@ const NASA_ivl = () => {
                             dangerouslySetInnerHTML={{
                               __html:
                                 selectedItem.data?.[0]?.description ||
-                                "No description available."
+                                "No description available.",
                             }}
                           />
                         </td>
@@ -288,9 +345,9 @@ const NASA_ivl = () => {
                         <th>Date Created</th>
                         <td>
                           {selectedItem.data?.[0]?.date_created
-                            ? new Date(selectedItem.data[0].date_created).toLocaleDateString(
-                                "en-IN"
-                              )
+                            ? new Date(
+                                selectedItem.data[0].date_created
+                              ).toLocaleDateString("en-IN")
                             : "N/A"}
                         </td>
                       </tr>
@@ -325,6 +382,7 @@ const NASA_ivl = () => {
 
             </div>
 
+            {/* Modal Footer */}
             <div className="modal-footer">
 
               {selectedItem?.links?.[0]?.href && (
@@ -348,11 +406,11 @@ const NASA_ivl = () => {
             </div>
 
           </div>
-
         </div>
       </div>
 
     </div>
+  </div>
   );
 };
 
