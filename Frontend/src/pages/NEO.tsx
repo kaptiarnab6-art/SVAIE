@@ -2,8 +2,16 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
 
+interface Datas {
+  asteroids:[],
+  total:number,
+  hazardous:number,
+  safe:number
+}
+
 const NEO = () => {
   const [info, setInfo] = useState<any>(null);
+  const [infos, setInfos] = useState<Datas>({asteroids:[],total:0,hazardous:0,safe:0});
 
   const api_key = import.meta.env.VITE_NASA_API_KEY;
 
@@ -13,6 +21,13 @@ const NEO = () => {
         `https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=${api_key}`
       );
       setInfo(res.data);
+       const asteroids = res.data.near_earth_objects;
+       const total = asteroids.length;
+       const hazardous = asteroids.filter(
+        (a: any) => a.is_potentially_hazardous_asteroid
+       ).length;
+       const safe = total - hazardous;
+       setInfos({asteroids:asteroids,total:total,hazardous:hazardous,safe:safe})
     } catch (err) {
       console.log(err);
       alert(err)
@@ -22,20 +37,6 @@ const NEO = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
-  if (!info)
-    return (
-      <Loader/>
-    );
-
-  const asteroids = info.near_earth_objects;
-
-  const total = asteroids.length;
-  const hazardous = asteroids.filter(
-    (a: any) => a.is_potentially_hazardous_asteroid
-  ).length;
-  const safe = total - hazardous;
-
   
 return (
   <div style={{ position: "relative", minHeight: "100vh" }}>
@@ -70,7 +71,9 @@ return (
         ☄️ Near Earth Objects
       </h2>
 
-      {/* Statistics */}
+     {
+      info ? 
+<div>
       <div className="row g-3 mb-4">
 
         {/* Total NEOs */}
@@ -86,7 +89,7 @@ return (
               <h5 className="card-title fw-bold">
                 🌍 Total NEOs
               </h5>
-              <h2 className="text-primary fw-bold">{total}</h2>
+              <h2 className="text-primary fw-bold">{infos.total}</h2>
             </div>
           </div>
         </div>
@@ -104,7 +107,7 @@ return (
               <h5 className="card-title fw-bold">
                 ⚠️ Hazardous
               </h5>
-              <h2 className="text-danger fw-bold">{hazardous}</h2>
+              <h2 className="text-danger fw-bold">{infos.hazardous}</h2>
             </div>
           </div>
         </div>
@@ -122,7 +125,7 @@ return (
               <h5 className="card-title fw-bold">
                 ✅ Safe
               </h5>
-              <h2 className="text-success fw-bold">{safe}</h2>
+              <h2 className="text-success fw-bold">{infos.safe}</h2>
             </div>
           </div>
         </div>
@@ -132,7 +135,7 @@ return (
       {/* Asteroid Cards */}
       <div className="row g-4">
 
-        {asteroids.map((v: any) => (
+        {infos.asteroids.map((v: any) => (
           <div className="col-lg-4 col-md-6" key={v.id}>
 
             <div
@@ -206,6 +209,10 @@ return (
         ))}
 
       </div>
+      </div>
+      :
+      <Loader/>
+     }
 
     </div>
   </div>
